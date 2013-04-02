@@ -1,0 +1,44 @@
+{
+    name: "Quizzley",
+    displayName: "Fun with flashcards",
+    version: "1.0",
+    creator: "Genius Inc.",
+    
+    rootURI: 'http://innovation.ahararwa.cloudbees.net',
+    helpURI: '/help.html',
+    authScheme: 'none',
+    
+    activities: {
+        "collaboration": {
+            displayName: "Quizzley - sets",
+            description: "Embed quizzley activities",
+            icon: "quizzley.png",
+            category: "other",
+            placement: "DISTINCT",
+            supportsAnnotations: false,
+            supportsContextMenu: false,
+
+            add: {
+                uri: '/index.jsp',
+                roles: ['SUPER_ADMIN', 'PRODUCTION', 'EDITOR' ]
+            },
+            configure: {
+                uri: '/index.jsp',
+                roles: ['SUPER_ADMIN', 'PRODUCTION', 'EDITOR']
+            }
+          }
+        },
+	
+    dockItems: {
+        "Quizzley": {
+            icon: "quizzley.png",
+            label: "Quizzley",
+            action: {
+                uri: "/index.jsp",
+                width: 800
+            }
+        }
+    }
+    
+
+}
