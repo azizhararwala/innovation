@@ -9,7 +9,7 @@
 
 	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 	<script type="text/javascript" src="scripts/quizlet.js"></script>
-	
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var json= <%=PlayListFetcher.fetchQuizletSearchResults()%>;
@@ -27,7 +27,7 @@
   		<th width="25%">Space Game</th>
   		<th width="25%">Scatter Game</th>
   	</tr>
-  
+
   </table>
 </div>
 </body>
