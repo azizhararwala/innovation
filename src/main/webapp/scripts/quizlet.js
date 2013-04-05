@@ -14,10 +14,10 @@ Quizlet.formatPlayItem = function(set) {
 	var flashCardUrl = 'http://innovation.ahararwa.cloudbees.net/QuizzleyRender?url=' + set.url;
 
     return  '<tr class="row">' +
-	    Quizlet.td('<a class="game btn-link text-info" data-url="'+ flashCardUrl + '">' + set.title + '</a>') +
+	    Quizlet.td('<a class="game btn-link" data-url="'+ flashCardUrl + '">' + set.title + '</a>') +
 	    Quizlet.td(set.description) +
-	    Quizlet.td('<button class="btn btn-primary game" data-url="'+ spaceUrl + '">Play</button>') +
-	    Quizlet.td('<button class="game btn btn-primary" data-url="'+ scatterUrl + '">Play</button>') +
+	    Quizlet.td('<button type="button" class="btn btn-primary game" data-url="'+ spaceUrl + '">Play</button>') +
+	    Quizlet.td('<button type="button" class="game btn btn-primary" data-url="'+ scatterUrl + '">Play</button>') +
 	    '</tr>';
 }
 

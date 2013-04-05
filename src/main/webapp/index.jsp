@@ -17,14 +17,14 @@
 			var json= <%=PlayListFetcher.fetchQuizletSearchResults()%>;
 			Quizlet.render(json);
 			Quizlet.attachedPlayGameClickEvent();
-			$('#playGame').dialog({ autoOpen: false, modal: true, title: "Play Game", width: 664, resizable: true });
+			$('#playGame').dialog({ autoOpen: false, modal: true, title: "Play Game", width: 700, resizable: true });
 		});
 	</script>
 </head>
 
 <body>
 <div id="renderQuizlet">
-  <table class="table table-bordered table-striped" border="1" cellspacing="0" id="quizly">
+  <table class="table table-bordered table-striped" id="quizly">
   	<tr class="row">
 		<th width="25%">Flash Card</th>
   		<th width="25%">Description</th>
@@ -33,7 +33,7 @@
   	</tr>
   </table>
 	<div id="playGame">
-	    <iframe id="playGameFrame" src="" width="640" height="360" frameborder="0" webkitallowfullscreen="" allowfullscreen=""></iframe>
+	    <iframe id="playGameFrame" src="" width="700" height="600" frameborder="0" webkitallowfullscreen="" allowfullscreen=""></iframe>
 	</div>
 </div>
 </body>
