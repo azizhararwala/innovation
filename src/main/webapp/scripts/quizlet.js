@@ -9,18 +9,35 @@ Quizlet.render= function(searchResults) {
 }
 //TODO: need to modify url to prod before demo
 Quizlet.formatPlayItem = function(set) {
-	var spaceUrl = 'http://localhost:8080/QuizzleyRender?url=http://quizlet.com/' + set.id + '/spacerace/';
-	var scatterUrl = 'http://localhost:8080/QuizzleyRender?url=http://quizlet.com/' + set.id + '/scatter/';
+	var spaceUrl = 'http://innovation.ahararwa.cloudbees.net/QuizzleyRender?url=http://quizlet.com/' + set.id + '/spacerace/';
+	var scatterUrl = 'http://innovation.ahararwa.cloudbees.net/QuizzleyRender?url=http://quizlet.com/' + set.id + '/scatter/';
+	var flashCardUrl = 'http://innovation.ahararwa.cloudbees.net/QuizzleyRender?url=' + set.url;
 
-	//var spaceUrl= 'http://quizlet.com/' + set.id + '/spacerace/';
-	//var scatterUrl= 'http://quizlet.com/' + set.id + '/scatter/';
     return  '<tr class="row">' +
-                Quizlet.td('<a target="_blank" href="'+ set.url + '">' + set.title + '</a>') +
-                Quizlet.td(set.description) +
-                Quizlet.td('<a href="'+ spaceUrl + '"><img src="playspace.png"></img></a>') +
-                Quizlet.td('<a href="'+ scatterUrl + '"><img width="32" height="32" src="playscatter.png"></img></a>') +
-            '</tr>';
+	    Quizlet.td('<a class="game btn-link text-info" data-url="'+ flashCardUrl + '">' + set.title + '</a>') +
+	    Quizlet.td(set.description) +
+	    Quizlet.td('<button class="btn btn-primary game" data-url="'+ spaceUrl + '">Play</button>') +
+	    Quizlet.td('<button class="game btn btn-primary" data-url="'+ scatterUrl + '">Play</button>') +
+	    '</tr>';
 }
+
+Quizlet.attachedPlayGameClickEvent = function() {
+	$("#renderQuizlet").delegate(".game", "click", Quizlet.clickGame);
+}
+
+Quizlet.clickGame = function(e) {
+	e.preventDefault();
+	var url = $(this).data('url');
+	Quizlet.openGame(url, 'play Game');
+}
+
+Quizlet.openGame = function (source, title) {
+	$('#playGameFrame').attr('src', source);
+	$('#playGame').dialog("option", "title", title);
+	$('#playGame').dialog("open");
+	$('.ui-widget-overlay').click(function () { $('#playGame').dialog('close'); });
+}
+
 
 Quizlet.td = function(text) {
     return '<td>' + text + '</td>';
